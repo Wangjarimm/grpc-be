@@ -1,0 +1,26 @@
+// grpc/proto/item.proto
+syntax = "proto3";
+
+package item;
+
+option go_package = "./grpc/proto;proto";
+
+service ItemService {
+    rpc GetItemById (ItemRequest) returns (Item);
+    rpc CreateItem (Item) returns (Item);
+    rpc UpdateItem (Item) returns (Item);
+    rpc DeleteItem (ItemRequest) returns (Empty);
+}
+
+message ItemRequest {
+    int32 id = 1;
+}
+
+message Item {
+    int32 id = 1;
+    string deskripsi_item = 2;
+    string harga_beli = 3;
+    int32 stok = 4;
+}
+
+message Empty {}

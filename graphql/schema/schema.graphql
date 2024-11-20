@@ -1,0 +1,31 @@
+# graphql/schema/schema.graphql
+
+type Item {
+  id: Int!
+  deskripsiItem: String!
+  hargaBeli: String!
+  stok: Int!
+}
+
+input NewItem {
+  deskripsiItem: String!
+  hargaBeli: String!
+  stok: Int!
+}
+
+input UpdateItem {
+  id: Int!
+  deskripsiItem: String!
+  hargaBeli: String!
+  stok: Int!
+}
+
+type Mutation {
+  createItem(input: NewItem!): Item!
+  updateItem(input: UpdateItem!): Item!
+  deleteItem(id: Int!): Item!
+}
+
+type Query {
+  getItemById(id: Int!): Item
+}
